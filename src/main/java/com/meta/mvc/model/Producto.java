@@ -1,5 +1,6 @@
 package com.meta.mvc.model;
 
+import dao.VotosDAO;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -50,6 +51,7 @@ public class Producto {
     }
     
     private boolean registrar_voto(){
+        VotosDAO votosDAO = new VotosDAO();
         if(escritura_exitosa(dia_hora())){
             return true;
         }

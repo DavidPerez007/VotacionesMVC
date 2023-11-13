@@ -36,7 +36,6 @@ public class VotacionesVista extends javax.swing.JFrame {
         votarBtnProducto2 = new javax.swing.JButton();
         votarBtnProducto3 = new javax.swing.JButton();
         verGraficasBtn = new javax.swing.JButton();
-        actualizarBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,8 +69,6 @@ public class VotacionesVista extends javax.swing.JFrame {
 
         verGraficasBtn.setText("Ver graficas");
 
-        actualizarBtn.setText("Actualizar");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,8 +78,7 @@ public class VotacionesVista extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(verGraficasBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(actualizarBtn))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(votarBtnProducto1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -126,9 +122,7 @@ public class VotacionesVista extends javax.swing.JFrame {
                     .addComponent(votarBtnProducto2)
                     .addComponent(votarBtnProducto3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(verGraficasBtn)
-                    .addComponent(actualizarBtn))
+                .addComponent(verGraficasBtn)
                 .addGap(15, 15, 15))
         );
 
@@ -179,7 +173,6 @@ public class VotacionesVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton actualizarBtn;
     public javax.swing.JLabel producto1ContadorLabel;
     public javax.swing.JLabel producto1Label;
     public javax.swing.JLabel producto2ContadorLabel;

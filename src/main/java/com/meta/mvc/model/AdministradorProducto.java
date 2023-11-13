@@ -1,5 +1,43 @@
 package com.meta.mvc.model;
 
 public class AdministradorProducto {
+    private Producto producto1;
+    private Producto producto2;
+    private Producto producto3;
+    
+    public AdministradorProducto(){
+        inicializarProductos();
+    }
+    
+    private void inicializarProductos(){
+        this.producto1 = new Producto();
+        this.producto2 = new Producto();
+        this.producto3 = new Producto();
+        
+    }
+    public Producto getProducto1() {
+        return producto1;
+    }
+
+    public void setProducto1(Producto producto1) {
+        this.producto1 = producto1;
+    }
+
+    public Producto getProducto2() {
+        return producto2;
+    }
+
+    public void setProducto2(Producto producto2) {
+        this.producto2 = producto2;
+    }
+
+    public Producto getProducto3() {
+        return producto3;
+    }
+
+    public void setProducto3(Producto producto3) {
+        this.producto3 = producto3;
+    }
+    
     
 }

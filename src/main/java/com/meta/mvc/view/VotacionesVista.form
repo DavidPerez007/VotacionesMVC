@@ -28,8 +28,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="verGraficasBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="actualizarBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="votarBtnProducto1" min="-2" max="-2" attributes="0"/>
@@ -88,10 +87,7 @@
                   <Component id="votarBtnProducto3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="54" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="verGraficasBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="actualizarBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="verGraficasBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -179,14 +175,6 @@
     <Component class="javax.swing.JButton" name="verGraficasBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver graficas"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="actualizarBtn">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Actualizar"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
