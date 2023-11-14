@@ -1,20 +1,19 @@
 package com.meta.mvc.model;
 
+import java.io.File;
+
 public class AdministradorProducto {
     private Producto producto1;
     private Producto producto2;
     private Producto producto3;
     
-    public AdministradorProducto(){
-        inicializarProductos();
+    public AdministradorProducto(File urlProducto1, File urlProducto2, File urlProducto3){
+        this.producto1 = new Producto(urlProducto1);
+        this.producto2 = new Producto(urlProducto2);
+        this.producto3 = new Producto(urlProducto3);
     }
     
-    private void inicializarProductos(){
-        this.producto1 = new Producto();
-        this.producto2 = new Producto();
-        this.producto3 = new Producto();
-        
-    }
+
     public Producto getProducto1() {
         return producto1;
     }

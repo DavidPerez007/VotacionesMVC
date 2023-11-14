@@ -1,67 +1,84 @@
-package controller;
+package com.meta.mvc.controller;
 
+import com.meta.mvc.controller.BarrasControl;
+import com.meta.mvc.controller.PastelControl;
+import com.meta.mvc.dao.VotosDAO;
 import com.meta.mvc.model.AdministradorProducto;
 import com.meta.mvc.model.Bitacora;
+import com.meta.mvc.model.GraficaModelo;
 import com.meta.mvc.model.Producto;
+import com.meta.mvc.view.Barras_grafica;
+import com.meta.mvc.view.Pastel_grafica;
 import com.meta.mvc.view.VotacionesVista;
-import dao.VotosDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 
 public class ControladorVotaciones implements ActionListener{
 
     private VotacionesVista votacionesVista;
     private AdministradorProducto administradorProducto;
-    private final File archivoProducto1 = new File("C:\\Users\\david\\Documents\\Udemy Courses\\Spring\\learning\\MVC\\src\\main\\java\\registros\\Horchata.txt");
-    private final File archivoProducto2 = new File("C:\\Users\\david\\Documents\\Udemy Courses\\Spring\\learning\\MVC\\src\\main\\java\\registros\\Jamaica.txt");
-    private final File archivoProducto3 = new File("C:\\Users\\david\\Documents\\Udemy Courses\\Spring\\learning\\MVC\\src\\main\\java\\registros\\Limonada.txt");
-    private VotosDAO votosDao= new VotosDAO(); 
+    private File archivoProducto1;
+    private File archivoProducto2 ;
+    private File archivoProducto3;
+    private VotosDAO votosDao = new VotosDAO(); 
     
     public ControladorVotaciones(VotacionesVista votacionesVista, AdministradorProducto administradorProducto) {
         this.votacionesVista = votacionesVista;
         this.administradorProducto = administradorProducto;
-        iniciarComponentes();
+        archivoProducto1 = this.administradorProducto.getProducto1().getArchivo();
+        archivoProducto2 = this.administradorProducto.getProducto2().getArchivo();
+        archivoProducto3 = this.administradorProducto.getProducto3().getArchivo();
+        iniciarComponentesGraficos();
         
     }
-    
 
- 
     @Override
     public void actionPerformed(ActionEvent e) {
         Bitacora bitacora = new Bitacora();
         if(e.getSource() == votacionesVista.votarBtnProducto1){
-            bitacora.escribir(this.votacionesVista.getClass().getSimpleName(), "Se presiono voto a producto " + administradorProducto.getProducto1().getNombre());
-            votosDao.agregarVoto(this.archivoProducto1);
+            bitacora.escribir(this.votacionesVista.getClass().getSimpleName(), "Se presiono voto a producto " + administradorProducto.getProducto1().getNombre());            
+            votosDao.escribirVoto(this.archivoProducto1);
             actualizarContadorEnPantalla(this.archivoProducto1, this.votacionesVista.producto1ContadorLabel);
-            //Enviar_a_graficas();
-            //vista.cont_votos_1.setText("" + productoService.Producto_1().getVotos());
         }
         if(e.getSource() == votacionesVista.votarBtnProducto2){
             bitacora.escribir(this.votacionesVista.getClass().getSimpleName(), "Se presiono voto a producto " + administradorProducto.getProducto2().getNombre());
-            //Producto producto2 = administradorProducto.getProducto2();
-            votosDao.agregarVoto(this.archivoProducto2);
+            votosDao.escribirVoto(this.archivoProducto2);
             actualizarContadorEnPantalla(this.archivoProducto2, this.votacionesVista.producto2ContadorLabel);
-            
-            //Enviar_a_graficas();
-            //vista.cont_votos_1.setText("" + productoService.Producto_1().getVotos());
         }
         if(e.getSource() == votacionesVista.votarBtnProducto3){
             bitacora.escribir(this.votacionesVista.getClass().getSimpleName(), "Se presiono voto a producto " + administradorProducto.getProducto3().getNombre());
-            //Producto producto3 = administradorProducto.getProducto3();
-            votosDao.agregarVoto(this.archivoProducto3);
+             votosDao.escribirVoto(this.archivoProducto3);
             actualizarContadorEnPantalla(this.archivoProducto3, this.votacionesVista.producto3ContadorLabel);
+        }
+        if(e.getSource() == votacionesVista.verGraficasBtn){
+            bitacora.escribir(this.votacionesVista.getClass().getSimpleName(), "Se solicito mostrar las graficas" );
+            ArrayList productos = crearArregloProductos();
+           
+            GraficaModelo graficaModelo = new GraficaModelo(productos);
+            Barras_grafica graficaBarrasVista = new Barras_grafica();
+            BarrasControl controladorGraficaBarras = new BarrasControl(graficaModelo, graficaBarrasVista);
             
+            Pastel_grafica graficaPastelVista = new Pastel_grafica();
+            PastelControl controladorGraficaPastel = new PastelControl(graficaModelo, graficaPastelVista);
             
-            //Enviar_a_graficas();
-            //vista.cont_votos_1.setText("" + productoService.Producto_1().getVotos());
         }
         
     }
     
-    private void iniciarComponentes(){
+    private ArrayList crearArregloProductos(){
+        ArrayList<Producto> productos = new ArrayList<Producto>();
+        productos.add(administradorProducto.getProducto1());
+        productos.add(administradorProducto.getProducto2());
+        productos.add(administradorProducto.getProducto3());
+           
+        return productos;
+    }
+    
+    private void iniciarComponentesGraficos(){
         this.votacionesVista.verGraficasBtn.addActionListener(this);
         this.votacionesVista.votarBtnProducto1.addActionListener(this);
         this.votacionesVista.votarBtnProducto2.addActionListener(this);

@@ -1,4 +1,4 @@
-package dao;
+package com.meta.mvc.dao;
 
 import com.meta.mvc.model.GestorFecha;
 import java.io.BufferedReader;
@@ -33,7 +33,7 @@ public class VotosDAO {
     }
 
     // Método para escribir en el archivo
-    public void agregarVoto(File archivo) {
+    public void escribirVoto(File archivo) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo, true))) {
             bw.write(GestorFecha.obtenerFechaYHora() + '\n');
         } catch (IOException e) {

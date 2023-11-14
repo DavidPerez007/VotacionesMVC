@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Bitacora {
-    private File archivoBitacora = new File("C:\\Users\\david\\Documents\\Udemy Courses\\Spring\\learning\\MVC\\src\\main\\java\\bitacora\\bitacora.txt");
+    private File archivoBitacora = new File("src\\main\\java\\com\\meta\\mvc\\bitacora\\bitacora.txt");
     
     public void escribir(String clase, String descripcion){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoBitacora, true))) {
