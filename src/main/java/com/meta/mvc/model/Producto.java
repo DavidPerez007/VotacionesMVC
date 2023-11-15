@@ -12,12 +12,15 @@ public class Producto {
     private int votos = 0;
     private File archivo;
 
-    public Producto(){     
-    }
     
     public Producto(File archivo){
         this.archivo = archivo;
         this.votos = contarVotos();
+    }
+    
+    public Producto(String nombre, int votos){
+        this.nombre  = nombre;
+        this.votos = votos;
     }
     
     public int contarVotos(){

@@ -1,10 +1,14 @@
 package com.meta.mvc.controller;
 
+import com.meta.mvc.dao.VotosDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import com.meta.mvc.model.GraficaModelo;
+import com.meta.mvc.model.Producto;
 import com.meta.mvc.view.Barras_grafica;
+import java.io.File;
+import java.util.ArrayList;
 
 public class BarrasControl implements ActionListener {
 
@@ -33,6 +37,30 @@ public class BarrasControl implements ActionListener {
             // SE PUEDE HACER UN GraficaModelo.refresh() y que el refresh() llame al dao para
             System.out.println("Refresh");
         }
+        refresh();
+    }
+    
+       private ArrayList productos;
+    
+    public void refresh() {
+        VotosDAO dao = new VotosDAO();
+        File archivoProducto1 = new File("src\\main\\java\\com\\meta\\mvc\\registros\\Horchata.txt");
+        File archivoProducto2 = new File("src\\main\\java\\com\\meta\\mvc\\registros\\Jamaica.txt");
+        File archivoProducto3 = new File("src\\main\\java\\com\\meta\\mvc\\registros\\Limonada.txt");
+
+        ArrayList<Producto> productos = new ArrayList<Producto>();
+
+        Producto p1 = new Producto("Horchata", dao.contarVotos(archivoProducto1));
+        Producto p2 = new Producto("Jamaica", dao.contarVotos(archivoProducto2));
+        Producto p3 = new Producto("Limonada", dao.contarVotos(archivoProducto3));
+
+        productos.add(p1);
+        productos.add(p2);
+        productos.add(p3);
+
+        this.modelo = new GraficaModelo(productos);
+        this.vista.listado = modelo.productos;
+        this.vista.repaint();
 
     }
 }

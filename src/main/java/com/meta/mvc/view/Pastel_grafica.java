@@ -175,6 +175,10 @@ public class Pastel_grafica extends javax.swing.JFrame {
     private Color getColorForProducto(Producto producto) {
         return new Color((int) (Math.random() * 256), (int) (Math.random() * 256), (int) (Math.random() * 256));
     }
+    
+    public void refresh(){
+        this.paint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrar;

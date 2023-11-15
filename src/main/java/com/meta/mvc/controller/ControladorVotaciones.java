@@ -15,9 +15,12 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Observable;
 import javax.swing.JLabel;
 
 public class ControladorVotaciones implements ActionListener{
+    
+    
 
     private VotacionesVista votacionesVista;
     private AdministradorProducto administradorProducto;
@@ -56,17 +59,24 @@ public class ControladorVotaciones implements ActionListener{
         }
         if(e.getSource() == votacionesVista.verGraficasBtn){
             bitacora.escribir(this.votacionesVista.getClass().getSimpleName(), "Se solicito mostrar las graficas" );
-            ArrayList productos = crearArregloProductos();
+            this.productos = crearArregloProductos();
            
             GraficaModelo graficaModelo = new GraficaModelo(productos);
             Barras_grafica graficaBarrasVista = new Barras_grafica();
-            BarrasControl controladorGraficaBarras = new BarrasControl(graficaModelo, graficaBarrasVista);
-            
+            this.controladorGraficaBarras = new BarrasControl(graficaModelo, graficaBarrasVista);
             Pastel_grafica graficaPastelVista = new Pastel_grafica();
-            PastelControl controladorGraficaPastel = new PastelControl(graficaModelo, graficaPastelVista);
+            this.controladorGraficaPastel = new PastelControl(graficaModelo, graficaPastelVista);
             
         }
         
+        refresh();
+    }
+    private ArrayList productos;
+    private PastelControl controladorGraficaPastel;
+    private BarrasControl controladorGraficaBarras;
+    private void refresh(){
+        this.controladorGraficaPastel.refresh();
+        this.controladorGraficaBarras.refresh();
     }
     
     private ArrayList crearArregloProductos(){
