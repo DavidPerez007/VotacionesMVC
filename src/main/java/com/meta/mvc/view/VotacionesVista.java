@@ -36,19 +36,27 @@ public class VotacionesVista extends javax.swing.JFrame {
         votarBtnProducto2 = new javax.swing.JButton();
         votarBtnProducto3 = new javax.swing.JButton();
         verGraficasBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        producto1Label.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         producto1Label.setText("Producto1");
 
+        producto2Label.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         producto2Label.setText("Producto2");
 
+        producto3Label.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         producto3Label.setText("Producto3");
 
+        producto1ContadorLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         producto1ContadorLabel.setText("0");
 
+        producto2ContadorLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         producto2ContadorLabel.setText("0");
 
+        producto3ContadorLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         producto3ContadorLabel.setText("0");
 
         votarBtnProducto1.setText("Votar");
@@ -69,6 +77,11 @@ public class VotacionesVista extends javax.swing.JFrame {
 
         verGraficasBtn.setText("Ver graficas");
 
+        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel1.setText("Bienvenido al super sistema de votaciones del futuro!");
+
+        jLabel2.setText("(Ya todos saben que va a ganar la horchata)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,49 +94,63 @@ public class VotacionesVista extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(votarBtnProducto1)
+                        .addGap(59, 59, 59)
+                        .addComponent(votarBtnProducto2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(votarBtnProducto3))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(producto1Label)
-                            .addComponent(producto1ContadorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(producto1ContadorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(producto1Label))
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(producto2Label)
+                            .addComponent(producto2ContadorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(102, 102, 102)
-                                .addComponent(producto2ContadorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(producto3Label)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(votarBtnProducto2)
-                                    .addComponent(producto2Label))
-                                .addGap(92, 92, 92)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(producto3ContadorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(producto3Label))))
+                                .addComponent(producto3ContadorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)))))
                 .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel2)))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(producto1Label)
-                    .addComponent(producto2Label)
-                    .addComponent(producto3Label))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(producto1ContadorLabel)
-                    .addComponent(producto2ContadorLabel)
-                    .addComponent(producto3ContadorLabel))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(votarBtnProducto1)
-                    .addComponent(votarBtnProducto2)
-                    .addComponent(votarBtnProducto3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(verGraficasBtn)
-                .addGap(15, 15, 15))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(votarBtnProducto1)
+                            .addComponent(votarBtnProducto2)
+                            .addComponent(votarBtnProducto3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                        .addComponent(verGraficasBtn)
+                        .addGap(15, 15, 15))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(producto2Label)
+                            .addComponent(producto3Label)
+                            .addComponent(producto1Label))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(producto1ContadorLabel)
+                            .addComponent(producto2ContadorLabel)
+                            .addComponent(producto3ContadorLabel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -173,6 +200,8 @@ public class VotacionesVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     public javax.swing.JLabel producto1ContadorLabel;
     public javax.swing.JLabel producto1Label;
     public javax.swing.JLabel producto2ContadorLabel;

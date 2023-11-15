@@ -6,21 +6,20 @@ import java.awt.event.ActionListener;
 
 import com.meta.mvc.model.GraficaModelo;
 import com.meta.mvc.model.Producto;
-import com.meta.mvc.view.Barras_grafica;
+import com.meta.mvc.view.GraficaBarrasVista;
 import java.io.File;
 import java.util.ArrayList;
 
 public class BarrasControl implements ActionListener {
 
     public GraficaModelo modelo;
-    public Barras_grafica vista;
+    public GraficaBarrasVista vista;
 
-    public BarrasControl(GraficaModelo modelo, Barras_grafica vista) {
+    public BarrasControl(GraficaModelo modelo, GraficaBarrasVista vista) {
         this.modelo = modelo;
         this.vista = vista;
         cargarVista();
         this.vista.getBtnCerrar().addActionListener(this);
-        this.vista.getBtnRefresh().addActionListener(this);
     }
 
     public void cargarVista() {
@@ -33,10 +32,7 @@ public class BarrasControl implements ActionListener {
         if (e.getSource().equals(vista.getBtnCerrar())) {
             this.vista.listado = modelo.productos;
             this.vista.setVisible(false);
-        } else if (e.getSource().equals(vista.getBtnRefresh())) {
-            // SE PUEDE HACER UN GraficaModelo.refresh() y que el refresh() llame al dao para
-            System.out.println("Refresh");
-        }
+        } 
         refresh();
     }
     

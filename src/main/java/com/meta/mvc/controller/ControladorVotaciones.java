@@ -7,8 +7,8 @@ import com.meta.mvc.model.AdministradorProducto;
 import com.meta.mvc.model.Bitacora;
 import com.meta.mvc.model.GraficaModelo;
 import com.meta.mvc.model.Producto;
-import com.meta.mvc.view.Barras_grafica;
-import com.meta.mvc.view.Pastel_grafica;
+import com.meta.mvc.view.GraficaBarrasVista;
+import com.meta.mvc.view.GraficaPastelVista;
 import com.meta.mvc.view.VotacionesVista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -62,9 +62,9 @@ public class ControladorVotaciones implements ActionListener{
             this.productos = crearArregloProductos();
            
             GraficaModelo graficaModelo = new GraficaModelo(productos);
-            Barras_grafica graficaBarrasVista = new Barras_grafica();
+            GraficaBarrasVista graficaBarrasVista = new GraficaBarrasVista();
             this.controladorGraficaBarras = new BarrasControl(graficaModelo, graficaBarrasVista);
-            Pastel_grafica graficaPastelVista = new Pastel_grafica();
+            GraficaPastelVista graficaPastelVista = new GraficaPastelVista();
             this.controladorGraficaPastel = new PastelControl(graficaModelo, graficaPastelVista);
             
         }
